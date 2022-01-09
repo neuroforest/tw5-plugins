@@ -1,0 +1,17 @@
+tags: $:/tags/Stylesheet
+title: $:/plugins/neuroforest/front/style/Other
+type: text/css
+
+.tc-drop-down {
+  border: 2px solid white;
+}
+
+.katex {
+  color: #b3f2ef;
+  background-color: #2E3440;
+  padding: 0 3px 2px;
+}
+
+div.tc-search svg {
+  fill: #d7dde9;
+}
