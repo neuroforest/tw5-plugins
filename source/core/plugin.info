@@ -2,5 +2,6 @@
 	"title": "$:/plugins/neuroforest/core",
 	"name": "Neuroforest Core",
 	"description": "NeuroForest Core",
-	"list": "readme"
+	"list": "readme",
+	"source": "https://github.com/neuroforest/tw5-plugin-core.git"
 }
