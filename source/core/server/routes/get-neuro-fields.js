@@ -36,7 +36,7 @@ GET /neuro/fields.json?filter=<filter>&fields=<fields>
     response.writeHead(200, {"Content-Type": "application/json"});
     var titles = state.wiki.filterTiddlers(filter),
       tiddlers = [],
-      fields = (state.queryParameters.fields || DEFAULT_FIELDS).split(",");
+      fields = state.queryParameters.fields || DEFAULT_FIELDS;
     $tw.utils.each(titles, function(title) {
       var tiddler = state.wiki.getTiddler(title),
         tiddlerFields = {};
