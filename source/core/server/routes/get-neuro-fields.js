@@ -47,7 +47,9 @@ GET /neuro/fields.json?filter=<filter>&fields=<fields>
           tiddlerFields[fields[i]] = tiddler.getFieldsString(fields[i]); */
         }
       }
-    tiddlers.push(tiddlerFields);
+    if (Object.keys(tiddlerFields).length !== 0) {
+     tiddlers.push(tiddlerFields);
+    }
     });
     var text = JSON.stringify(tiddlers);
     response.end(text,"utf8");
