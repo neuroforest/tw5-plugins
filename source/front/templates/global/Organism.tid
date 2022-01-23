@@ -3,7 +3,7 @@ tags: $:/tags/ViewTemplate
 title: $:/plugins/neuroforest/front/templates/Organism
 type: text/vnd.tiddlywiki
 
-<$list filter="[all[current]prefix[.bt-]!search:title[@]!search:title[#]]">
+<$list filter="[all[current]prefix[.bt-]!search:title[@]!search:title[#]] -[prefix[.bt-s ]]">
   <table class=nc-table style="width:100%;">
 	<tr>
 	  <td>
