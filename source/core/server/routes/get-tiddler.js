@@ -1,10 +1,5 @@
 /*\
 title: $:/plugins/neuroforest/core/server/routes/get-tiddler.js
-created: 20200413093355986
-creator: Me
-tags: 
-modified: 20200429133229051
-modifier: Me
 module-type: route
 type: application/javascript
 
@@ -30,7 +25,6 @@ exports.handler = function(request,response,state) {
                 tiddlerFields[name] = tiddler.getFieldString(name);
             } else {
                 tiddlerFields[name] = field;
-                console.log(field);
             }
         })
         
@@ -40,9 +34,7 @@ exports.handler = function(request,response,state) {
       
       	// Parse wikitext
       	var parsedTiddler = state.wiki.parseTiddler(title);
-      	console.log(parsedTiddler);
       	var parseTree = parsedTiddler.tree;
-      	console.log(parseTree);
       	tiddlerFields["text.parsed"] = parseTree;
 
         // Write response 
