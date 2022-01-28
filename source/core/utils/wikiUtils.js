@@ -15,11 +15,17 @@ type: application/javascript
 exports.nfRename = function(from, to) {
     var tiddler = $tw.wiki.getTiddler(from);
     if (! tiddler) {
-        console.log(`Tiddler '${from}' does not exist.`)
+        var message = `Tiddler '${from}' does not exist.`;
+        console.log(message);
+        return message;
     } else if ($tw.wiki.getTiddler(to)) {
-        console.log(`Target tiddler '${to}' already exists.`)
+        var message = `Target tiddler '${to}' already exists.`;
+        console.log(message);
+        return message;
     } else if (! to) {
-        console.log(`No target tiddler given.`)
+        var message = `No target tiddler given.`;
+        console.log(message);
+        return message;
     } else {
         var backlinks = $tw.wiki.filterTiddlers(`[[${from}]backlinks[]]`);
 
@@ -52,6 +58,7 @@ exports.nfRename = function(from, to) {
                 $tw.wiki.addTiddler(newTiddler);
             }
         })
+        return 204;
     }
 };
 
@@ -166,8 +173,9 @@ exports.nfDeleteTiddlers = function(filter) {
 exports.nfMerge = function(tiddlerTitles) {
     // Check the input
     if (! Array.isArray(tiddlerTitles)) {
-        console.error("ERROR: the argument is not an Array");
-        return;
+        var message = "The argument is not an Array";
+        console.error(message);
+        return message;
     }
 
     var tiddlers = new Array();
@@ -175,8 +183,22 @@ exports.nfMerge = function(tiddlerTitles) {
         var tiddler = $tw.wiki.getTiddler(tiddlerTitle);
         return tiddler;
     })
-    var tiddlerFields = {}
 
+    // Determine if all tiddler exist
+    var invalidTiddlers = new Array();
+    for (var i = 0; i < tiddlers.length; i++) {
+      var title = tiddlerTitles[i];
+      var tiddler = tiddlers[i];
+      if (! tiddler) {
+        invalidTiddlers.push(title);
+      }
+    }
+    if (invalidTiddlers.length) {
+      return `Invalid tiddlers: ${invalidTiddlers.join(", ")}`;
+      var tiddlers = tiddlers.filter(Boolean);
+    }
+
+    var tiddlerFields = new Object();
     tiddlers.forEach(function(tiddlerNew) {
         Object.assign(tiddlerFields, tiddlerNew.fields);
     })
@@ -189,6 +211,7 @@ exports.nfMerge = function(tiddlerTitles) {
     })
 
     $tw.wiki.addTiddler(new $tw.Tiddler(tiddlerFields));
+    return 204;
 }
 
 })();

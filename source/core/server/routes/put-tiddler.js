@@ -32,11 +32,11 @@ exports.handler = function(request,response,state) {
 	var current = $tw.wiki.getTiddler("test")
 
 	state.wiki.addTiddler(new $tw.Tiddler(
-	    $tw.wiki.getCreationFields(),
-	    $tw.wiki.getTiddler(title),
-	    fields,
-	    {title: title},
-	    $tw.wiki.getModificationFields()
+    $tw.wiki.getCreationFields(),
+    $tw.wiki.getTiddler(title),
+    fields,
+    {title: title},
+    $tw.wiki.getModificationFields()
 	));
 	var changeCount = state.wiki.getChangeCount(title).toString();
 	response.writeHead(204, "OK",{
