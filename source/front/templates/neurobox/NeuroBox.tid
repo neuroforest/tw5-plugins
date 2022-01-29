@@ -4,7 +4,6 @@ title: $:/plugins/neuroforest/front/templates/NeuroBox
 <$list filter="[all[current]!prefix[$:/]]">
 <div class="neuro-box">
 <table>
-<tr align="center" height=30><strong>NeuroBox</strong></tr>
 <$list filter="[all[shadows+tiddlers]tag[$:/plugins/neuroforest/front/tags/NeuroBox]sort[custom-sort]]" variable=child>
 <tr>
 <$tiddler tiddler=<<currentTiddler>> >
