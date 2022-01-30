@@ -1,11 +1,7 @@
 /*\
-created: 20200408163858079
-creator: Me
 title: $:/plugins/neuroforest/core/macros/field-to-link.js
 type: application/javascript
 module-type: macro
-modified: 20200408193055453
-modifier: Me
 \*/
 
 (function(){

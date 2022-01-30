@@ -1,10 +1,5 @@
 /*\
-created: 20200408202907669
-creator: Me
-tags: 
 title: $:/plugins/neuroforest/core/macros/field-value.js
-modified: 20200408203334859
-modifier: Me
 type: application/javascript
 module-type: macro
 

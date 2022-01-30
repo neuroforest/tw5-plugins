@@ -2,30 +2,9 @@
 title: $:/core/modules/widgets/image.js
 type: application/javascript
 module-type: widget
-
-The image widget displays an image referenced with an external URI or with a local tiddler title.
-
-```
-<$image src="TiddlerTitle" width="320" height="400" class="classnames">
-```
-
-The image source can be the title of an existing tiddler or the URL of an external image.
-
-External images always generate an HTML `<img>` tag.
-
-Tiddlers that have a _canonical_uri field generate an HTML `<img>` tag with the src attribute containing the URI.
-
-Tiddlers that contain image data generate an HTML `<img>` tag with the src attribute containing a base64 representation of the image.
-
-Tiddlers that contain wikitext could be rendered to a DIV of the usual size of a tiddler, and then transformed to the size requested.
-
-The width and height attributes are interpreted as a number of pixels, and do not need to include the "px" suffix.
-
 \*/
 (function(){
 
-/*jslint node: true, browser: true */
-/*global $tw: false */
 "use strict";
 
 var Widget = require("$:/core/modules/widgets/widget.js").widget;

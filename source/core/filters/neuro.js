@@ -1,12 +1,7 @@
 /*\
-created: 20200408113832971
-creator: Me
 title: $:/plugins/neuroforest/core/filters/neuro.js
 type: application/javascript
-modified: 20200428212131728
 module-type: filteroperator
-tags: 
-modifier: Me
 \*/
 (function(){
 

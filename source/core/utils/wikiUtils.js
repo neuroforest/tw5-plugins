@@ -1,10 +1,5 @@
 /*\
-created: 20200408180008365
-creator: Me
-tags: 
 title: $:/plugins/neuroforest/core/utils/wikiUtils.js
-modified: 20200408180357776
-modifier: Me
 module-type: wikimethod
 type: application/javascript
 \*/

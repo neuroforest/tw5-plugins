@@ -1,11 +1,7 @@
 /*\
-created: 20200408113555086
-creator: Me
 title: $:/plugins/neuroforest/core/server/routes/get-neuro-index.js
 type: application/javascript
 module-type: route
-modified: 20200429144734520
-modifier: Me
 
 GET /neuro/index.json?filter=<filter>
 

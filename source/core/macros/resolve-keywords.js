@@ -1,12 +1,7 @@
 /*\
-created: 20200502220722566
-creator: Me
 title: $:/plugins/neuroforest/core/macros/resolve-keyword.js
 type: application/javascript
-modified: 20200502222231738
 module-type: macro
-tags: 
-modifier: Me
 \*/
 (function(){
 

@@ -1,10 +1,5 @@
 /*\
-created: 20200408164023072
-creator: Me
 title: $:/plugins/neuroforest/core/utils/tiddlerUtils.js
-tags: 
-modified: 20200503011255768
-modifier: Me
 module-type: tiddlermethod
 type: application/javascript
 \*/

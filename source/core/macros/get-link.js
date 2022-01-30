@@ -1,12 +1,7 @@
 /*\
-created: 20200428213856708
-creator: Me
 title: $:/plugins/neuroforest/core/macros/get-link.js
 type: application/javascript
-modified: 20200428222405537
 module-type: macro
-tags: 
-modifier: Me
 \*/
 (function(){
 

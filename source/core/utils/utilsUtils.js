@@ -1,10 +1,5 @@
 /*\
-created: 20200408192419246
-creator: Me
 title: $:/plugins/neuroforest/core/utils/utilsUtils.js
-tags: 
-modified: 20200427152319253
-modifier: Me
 module-type: utils
 type: application/javascript
 

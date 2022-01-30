@@ -1,12 +1,7 @@
 /*\
-created: 20200428163822115
-creator: Me
 title: $:/plugins/neuroforest/core/macros/get-role-link.js
 type: application/javascript
-modified: 20200924201559229
 module-type: macro
-tags: 
-modifier: Me
 \*/
 (function(){
 
