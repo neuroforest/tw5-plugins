@@ -17,15 +17,15 @@ exports.nfRename = function(from, to) {
     if (! tiddler) {
         var message = `Tiddler '${from}' does not exist.`;
         console.log(message);
-        return message;
+        return {"code": 500, "message": message};
     } else if ($tw.wiki.getTiddler(to)) {
         var message = `Target tiddler '${to}' already exists.`;
         console.log(message);
-        return message;
+        return {"code": 500, "message": message};
     } else if (! to) {
         var message = `No target tiddler given.`;
         console.log(message);
-        return message;
+        return {"code": 500, "message": message};
     } else {
         var backlinks = $tw.wiki.filterTiddlers(`[[${from}]backlinks[]]`);
 
@@ -58,7 +58,7 @@ exports.nfRename = function(from, to) {
                 $tw.wiki.addTiddler(newTiddler);
             }
         })
-        return 204;
+        return {"code": 204}
     }
 };
 
@@ -128,26 +128,43 @@ exports.nfDisplayTiddlers = function(filter, mode="add") {
     })
 };
 
-exports.nfReplace = function(text, newText, filter="[all[tiddlers]] -[prefix[$:/]]") {
-    // TODO: if backslash is present it fails
+exports.nfReplace = function(oldText, newText, filter) {
+    filter = filter || `[all[tiddlers]search:*:casesensitive,literal[${oldText}]] -[prefix[$:/]]`;
+    if (! oldText || !newText) {
+        var message = "Arguments not valid";
+        console.error(message);
+        return {"code": 500, "message": message};
+    }
     var tiddlerTitles = $tw.wiki.filterTiddlers(filter);
+    if (tiddlerTitles.length === 0) {
+        var message = "0 matches";
+        console.error(message);
+        return {"code": 500, "message": message};
+    }
 
+    var count = 0;
     $tw.utils.each(tiddlerTitles, function(title) {
         var tiddler = $tw.wiki.getTiddler(title);
-        var tiddlerText = tiddler.fields.text;
-    
-        if (!tiddlerText) return;
+        var newFields = {};
 
-        if (tiddlerText.includes(text)) {
-            console.log(title);
-            var newTiddlerText = tiddlerText.split(text).join(newText);
-            var fields = {
-                "text": newTiddlerText
+        for (var field in tiddler.fields) {
+            if (typeof tiddler.fields[field] === "string") {
+                var newValue = tiddler.fields[field].split(oldText).join(newText);
+            } else {
+                console.log(tiddler.fields[field]);
+                continue;
             }
-            $tw.wiki.addTiddler(new $tw.Tiddler(tiddler.fields, fields));
+            if (newValue !== tiddler.fields[field]) {
+                newFields[field] = newValue;
+            }
         }
 
+        if (Object.keys(newFields).length > 0) {
+            $tw.wiki.addTiddler(new $tw.Tiddler(tiddler.fields, newFields));
+            count += 1;
+        }
     })
+    return {"code": 200, "message": `${count} tiddlers affected`};
 };
 
 exports.nfRenameTiddlers = function(filter, fromText, toText) {
@@ -175,7 +192,7 @@ exports.nfMerge = function(tiddlerTitles) {
     if (! Array.isArray(tiddlerTitles)) {
         var message = "The argument is not an Array";
         console.error(message);
-        return message;
+        return {"code": 500, "message": message};
     }
 
     var tiddlers = new Array();
@@ -211,7 +228,7 @@ exports.nfMerge = function(tiddlerTitles) {
     })
 
     $tw.wiki.addTiddler(new $tw.Tiddler(tiddlerFields));
-    return 204;
+    return {"code": 204};
 }
 
 })();
