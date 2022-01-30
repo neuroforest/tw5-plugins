@@ -19,24 +19,24 @@ exports.name = "resolve-keyword";
 exports.params = [];
 
 exports.run = function(keyword) {
-    var logger = new $tw.utils.Logger("neuro");
-    var tiddlerMatch;
-    $tw.wiki.each(function(tiddler, title) {
-        var tiddlerKeyword = tiddler.fields["neuro.keyword"];
-     
-        if (tiddlerKeyword === keyword) {
-            tiddlerMatch = tiddler;
-            return;
-        }
-    });
-    if (tiddlerMatch) {
-        var link = $tw.utils.getLink(tiddlerMatch);
-        return link;
-        console.log("Link:" + link);
-    } else {
-        logger.alert("Not found: " + keyword);
-        return "none";
+  var logger = new $tw.utils.Logger("neuro");
+  var tiddlerMatch;
+  $tw.wiki.each(function(tiddler, title) {
+    var tiddlerKeyword = tiddler.fields["neuro.keyword"];
+   
+    if (tiddlerKeyword === keyword) {
+      tiddlerMatch = tiddler;
+      return;
     }
+  });
+  if (tiddlerMatch) {
+    var link = $tw.utils.getLink(tiddlerMatch);
+    return link;
+    console.log("Link:" + link);
+  } else {
+    logger.alert("Not found: " + keyword);
+    return "none";
+  }
 };
 
 })();

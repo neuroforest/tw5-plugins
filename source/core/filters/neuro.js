@@ -10,15 +10,7 @@ modifier: Me
 \*/
 (function(){
 
-/*jslint node: true, browser: true */
-/*global $tw: false */
 "use strict";
-  
-/*
-tiddler: the tiddler whose parent is determined
-mode: mode for determining parent from tags
-stop: 
-*/
   
 function getTaxonChain(title) {
 	var count;

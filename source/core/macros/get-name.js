@@ -10,15 +10,15 @@ modifier: Me
 \*/
 (function(){
 
-  "use strict";
-  
-  exports.name = "get-name";
-  
-  exports.params = [];
-  
-  exports.run = function(title) {
-    var tiddler = $tw.wiki.getTiddler(title);
-    tiddler.getName();
-  }
-  })();
-  
+"use strict";
+
+exports.name = "get-name";
+
+exports.params = [];
+
+exports.run = function(title) {
+  var tiddler = $tw.wiki.getTiddler(title);
+  tiddler.getName();
+};
+
+})();

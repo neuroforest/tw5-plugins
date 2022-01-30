@@ -19,16 +19,16 @@ exports.name = "field-value";
 exports.params = [];
 
 exports.run = function(title, field) {
-    var tiddler, value;
-    
-    tiddler = $tw.wiki.getTiddler(title);
-    if (tiddler) {
-        value = tiddler.fields[field];
-        if (value) {
-            return value;
-        }
+  var tiddler, value;
+  
+  tiddler = $tw.wiki.getTiddler(title);
+  if (tiddler) {
+    value = tiddler.fields[field];
+    if (value) {
+      return value;
     }
-  	return "";
+  }
+  return "";
 };
 
 })();

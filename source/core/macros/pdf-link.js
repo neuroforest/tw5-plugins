@@ -17,16 +17,16 @@ exports.name = "pdf-link";
 exports.params = [];
 
 exports.run = function(pdf, page) {
-    console.log("RUNNING PDF-LINK.")
-    var pdfTiddler = $tw.wiki.getTiddler(pdf);
-    if (pdfTiddler && pdfTiddler.fields["link.pdf"]) {
-        var pdfUrl = pdfTiddler.fields["link.pdf"];
-        var fullPdfUrl = pdfUrl + "#" + page;
-        var pdfLink = "[[Open PDF|" + fullPdfUrl + "]]";
-        return pdfLink;
-    } else {
-        return;
-    }
+  console.log("RUNNING PDF-LINK.")
+  var pdfTiddler = $tw.wiki.getTiddler(pdf);
+  if (pdfTiddler && pdfTiddler.fields["link.pdf"]) {
+    var pdfUrl = pdfTiddler.fields["link.pdf"];
+    var fullPdfUrl = pdfUrl + "#" + page;
+    var pdfLink = "[[Open PDF|" + fullPdfUrl + "]]";
+    return pdfLink;
+  } else {
+    return;
+  }
 };
 
 })();
