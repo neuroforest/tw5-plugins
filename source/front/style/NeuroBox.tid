@@ -13,6 +13,7 @@ div.neuro-box {
 .nc-neuro-box-header {
   font-size: 1.2em;
   display: table;
+  margin-bottom: 1em;
 }
 
 div.neuro-box table {
