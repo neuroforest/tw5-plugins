@@ -1,7 +1,8 @@
 {
-	"title": "$:/plugins/neuroforest/front",
-	"name": "Neuroforest Front",
 	"description": "NeuroForest Front",
 	"list": "readme",
-	"source": "https://github.com/neuroforest/tw5-plugin-front.git"
+	"name": "Neuroforest Front",
+	"source": "https://github.com/neuroforest/tw5-plugin-front.git",
+	"title": "$:/plugins/neuroforest/front",
+	"version": "1.0.0"
 }
