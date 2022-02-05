@@ -1,9 +1,9 @@
 list-before: $:/core/ui/ViewTemplate/body
 tags: $:/tags/ViewTemplate
-title: $:/plugins/neuroforest/front/templates/Organism
+title: $:/plugins/neuroforest/front/templates/Taxon
 type: text/vnd.tiddlywiki
 
-<$list filter="[all[current]prefix[.bt-]!search:title[@]!search:title[#]] -[prefix[.bt-s ]]">
+<$list filter="[all[current]prefix[.bt-]!search:title[#]] -[prefix[.bt-s ]]">
   <table class=nc-table style="width:100%;">
 	<tr>
 	  <td>
