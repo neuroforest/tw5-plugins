@@ -143,7 +143,10 @@ exports.nfReplace = function(oldText, newText, filter) {
     var newFields = {};
 
     for (var field in tiddler.fields) {
-      if (typeof tiddler.fields[field] === "string") {
+      var ignoreFields = ["title", "neuro.id", "tmap.id"];
+      if (ignoreFields.indexOf(field) > -1) {
+        continue;
+      } else if (typeof tiddler.fields[field] === "string") {
         var newValue = tiddler.fields[field].split(oldText).join(newText);
       } else {
         console.log(tiddler.fields[field]);
