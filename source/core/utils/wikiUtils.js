@@ -206,8 +206,8 @@ exports.nfMerge = function(tiddlerTitles) {
     }
   }
   if (invalidTiddlers.length) {
-    return `Invalid tiddlers: ${invalidTiddlers.join(", ")}`;
-    var tiddlers = tiddlers.filter(Boolean);
+    var message = `Invalid tiddlers: ${invalidTiddlers.join(", ")}`;
+    return {"code": 500, "message": message}
   }
 
   var tiddlerFields = new Object();

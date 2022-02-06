@@ -40,7 +40,7 @@ exports.handler = function(request,response,state) {
     response.writeHead(200, status.message, {
       "Content-Type": "text/plain"
     });
-  } else if (status === 204) {
+  } else if (statusCode === 204) {
     response.writeHead(204, "OK", {
       "Content-Type": "text/plain"
     });
