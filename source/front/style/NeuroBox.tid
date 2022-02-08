@@ -16,6 +16,10 @@ div.neuro-box {
   margin-bottom: 1em;
 }
 
+.nc-neuro-box-header span {
+  white-space: initial;
+}
+
 div.neuro-box table {
   width: 100%;
   margin-top: 0em;
