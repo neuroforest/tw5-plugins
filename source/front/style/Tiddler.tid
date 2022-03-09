@@ -35,3 +35,7 @@ h3 {
 div.tc-tiddler-edit-frame .tc-edit {
     color: white;
 }
+
+div.tc-edit-add-tag button {
+    margin: 0px 4px 0px 4px;
+}
