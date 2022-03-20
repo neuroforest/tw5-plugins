@@ -142,6 +142,11 @@ exports.nfReplace = function(oldText, newText, filter) {
     var tiddler = $tw.wiki.getTiddler(title);
     var newFields = {};
 
+    if (! tiddler) {
+        var message = `Tiddler '${title}' was not found`;
+        console.error(message);
+    }
+
     for (var field in tiddler.fields) {
       var ignoreFields = ["title", "neuro.id", "tmap.id"];
       if (ignoreFields.indexOf(field) > -1) {
