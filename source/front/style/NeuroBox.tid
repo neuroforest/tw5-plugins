@@ -18,6 +18,7 @@ div.neuro-box {
 
 .nc-neuro-box-header span {
   white-space: initial;
+  cursor: auto;
 }
 
 div.neuro-box table {
