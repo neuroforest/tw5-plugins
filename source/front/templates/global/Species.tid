@@ -4,7 +4,7 @@ title: $:/plugins/neuroforest/front/templates/Species
 type: text/vnd.tiddlywiki
 
 <$list filter="[all[current]prefix[.bt-s ]]">
-  <table class=nc-table style="width:100%;">
+  <table class=nc-table-dark style="width:100%;">
 	<tr>
 	  <td align=center style="padding:0.8em 0.5em 0.5em 0.5em;">
         <$image source={{!!img}} height=256px/>

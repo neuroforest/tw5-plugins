@@ -4,7 +4,7 @@ title: $:/plugins/neuroforest/front/templates/Taxon
 type: text/vnd.tiddlywiki
 
 <$list filter="[all[current]prefix[.bt-]!search:title[#]] -[prefix[.bt-s ]]">
-  <table class=nc-table style="width:100%;">
+  <table class=nc-table-dark style="width:100%;">
 	<tr>
 	  <td>
 		<div class="tc-table-of-contents">
