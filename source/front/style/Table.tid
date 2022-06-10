@@ -24,7 +24,7 @@ type: text/css
     border: none;
 }
 
-.nc-table td {
+.nc-table td, .nc-table-dark td {
     height: 1.5em;
     text-align: center;
     vertical-align: middle;
@@ -32,7 +32,7 @@ type: text/css
     padding-right: 0.5em;
 }
 
-.nc-table th {
+.nc-table th, .nc-table-dark th {
     height: 1.5em;
     text-align: center;
     vertical-align: middle;

@@ -32,6 +32,10 @@ h3 {
     width: 100%;
 }
 
+.tc-view-field-table > tbody > tr > :nth-child(2) {
+    overflow-wrap: anywhere;
+}
+
 div.tc-tiddler-edit-frame .tc-edit {
     color: white;
 }
