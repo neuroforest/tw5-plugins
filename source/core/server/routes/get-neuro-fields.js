@@ -33,6 +33,9 @@ GET /neuro/fields.json?filter=<filter>&fields=<fields>
     var titles = state.wiki.filterTiddlers(filter),
       tiddlers = [],
       fields = state.queryParameters.fields || DEFAULT_FIELDS;
+    if (! Array.isArray(fields)) {
+      fields = new Array(fields);
+    }
     $tw.utils.each(titles, function(title) {
       var tiddler = state.wiki.getTiddler(title),
         tiddlerFields = {};
