@@ -2,4 +2,4 @@ caption: NF Code Link
 tags: $:/tags/TextEditor/Snippet
 title: $:/plugins/neuroforest/front/snippets/CodeLink.tid
 
-<$link to="">``</$link>
+<$link to=".cp-sh-cm ">``</$link>
