@@ -20,6 +20,10 @@ h3 {
   fill: #d7dde9;
 }
 
+.tc-tiddler-body {
+    overflow: hidden;
+}
+
 .tc-tiddler-info {
     border: solid white 1px;
     border-radius: 8px;
@@ -42,4 +46,8 @@ div.tc-tiddler-edit-frame .tc-edit {
 
 div.tc-edit-add-tag button {
     margin: 0px 4px 0px 4px;
+}
+
+div.tc-tags-wrapper {
+    margin-bottom: 0px;
 }
