@@ -42,8 +42,11 @@ GET /neuro/fields.json?filter=<filter>&fields=<fields>
       for (var i = 0, length = fields.length; i < length; i++) {
         var currentField = fields[i];
         if (currentField in tiddler.fields) {
-          tiddlerFields[currentField] = tiddler.fields[currentField];/* 
-          tiddlerFields[fields[i]] = tiddler.getFieldsString(fields[i]); */
+          if (currentField === "text") {
+            tiddlerFields[currentField] = tiddler.getFieldString(currentField);
+          } else {
+            tiddlerFields[currentField] = tiddler.fields[currentField];
+          }
         }
       }
     if (Object.keys(tiddlerFields).length !== 0) {
