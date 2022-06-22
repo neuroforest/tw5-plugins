@@ -16,9 +16,11 @@ type: text/vnd.tiddlywiki
 		</div>
 	  </td>
 	  <td align=left>
-	  	  <$link to={{!!bio.special}} />
-	  	  <br><br>
-	  	  {{||$:/plugins/neuroforest/front/templates/Translation}}  
+      <$list filter="[all[current]has[bio.special]]">
+        <$link to={{!!bio.special}} />
+        <br><br>
+      </$list>
+      {{||$:/plugins/neuroforest/front/templates/Translation}}
 	  </td>
 	  <td align=center>
 		{{||$:/plugins/neuroforest/front/templates/Taxonomy}}

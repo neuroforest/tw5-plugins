@@ -10,9 +10,18 @@ type: text/vnd.tiddlywiki
         <$image source={{!!img}} height=256px/>
 	  </td>
 	  <td align=left>
-	  	  <$link to={{!!bio.special}} />
-	  	  <br><br>
-	  	  {{||$:/plugins/neuroforest/front/templates/Translation}}
+      <$list filter="[all[current]has[bio.special]]">
+        <$link to={{!!bio.special}} />
+        <br><br>
+       </$list>
+      {{||$:/plugins/neuroforest/front/templates/Translation}}
+      <div class="tc-table-of-contents">
+        <$macrocall
+          $name=toc-selective-expandable
+          tag=<<currentTiddler>>
+          sort="prefix[.bt-]!search:title[@]!search:title[#]sort[title]"
+        />
+      </div>
 	  </td>
 	  <td align=center>
 		{{||$:/plugins/neuroforest/front/templates/Taxonomy}}
