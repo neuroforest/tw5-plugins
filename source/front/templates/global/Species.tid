@@ -13,9 +13,12 @@ type: text/vnd.tiddlywiki
       <$list filter="[all[current]has[bio.special]]">
         <$link to={{!!bio.special}} />
         <br><br>
-       </$list>
-      {{||$:/plugins/neuroforest/front/templates/Translation}}
-      <div class="tc-table-of-contents">
+      </$list>
+      <div align="left">
+        {{||$:/plugins/neuroforest/front/templates/Translation}}
+      </div>
+      {{||$:/plugins/neuroforest/front/templates/LinkBar}}
+      <div align="left" class="tc-table-of-contents">
         <$macrocall
           $name=toc-selective-expandable
           tag=<<currentTiddler>>
