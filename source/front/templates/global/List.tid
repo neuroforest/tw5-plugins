@@ -3,8 +3,11 @@ tags: $:/tags/ViewTemplate
 title: $:/plugins/neuroforest/front/templates/List
 
 <$list filter="[all[current]search:neuro.role:literal[list]]" variable="current">
-	<div class="nc-enhance">
-		Number of elements: ''<$count tag filter="[tag<current>sort[title]]"/>''
+	<div class="nc-list-header">
+    <div class="nc-enhance">
+      Number of elements: ''<$count tag filter="[tag<current>sort[title]]"/>''
+    </div>
+    {{||$:/plugins/neuroforest/front/templates/LinkBar}}
 	</div>
 	<$scrollable class="nc-scrollable">
 	
