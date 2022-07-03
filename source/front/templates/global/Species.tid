@@ -25,6 +25,11 @@ type: text/vnd.tiddlywiki
           sort="prefix[.bt-]!search:title[@]!search:title[#]sort[title]"
         />
       </div>
+      <$list filter="[all[current]has[imgc]]">
+        <div align="left">
+          Image caption: {{!!imgc}}
+        </div>
+      </$list>
 	  </td>
 	  <td align=center>
 		{{||$:/plugins/neuroforest/front/templates/Taxonomy}}
