@@ -20,22 +20,19 @@ exports.handler = function(request,response,state) {
   
   if(tiddler) {
     // Make a copy of tiddler fields.
-    $tw.utils.each(tiddler.fields, function(field, name) {
+    $tw.utils.each(tiddler.fields, function(fieldValue, fieldName) {
       if (name === "text") {
-        tiddlerFields[name] = tiddler.getFieldString(name);
+        tiddlerFields[fieldName] = tiddler.getFieldString(fieldName);
+      } else if (fieldName === "created" ) {
+        tiddlerFields[fieldName] = $tw.utils.stringifyDate(fieldValue);
       } else {
-        tiddlerFields[name] = field;
+        tiddlerFields[fieldName] = fieldValue;
       }
     })
     
     // Add server fields
     tiddlerFields.revision = state.wiki.getChangeCount(title);
     tiddlerFields.type = tiddlerFields.type || "text/vnd.tiddlywiki";
-    
-    // Parse wikitext
-    var parsedTiddler = state.wiki.parseTiddler(title);
-    var parseTree = parsedTiddler.tree;
-    tiddlerFields["text.parsed"] = parseTree;
 
     // Write response 
     response.writeHead(200, {"Content-Type": "application/json; charset=utf-8"});
