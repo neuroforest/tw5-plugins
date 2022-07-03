@@ -19,16 +19,12 @@ exports.sortbydate = function(source) {
     resultsMap[dateNumeric] = title;
   }
 
-  console.log(resultsMap);
-
   // Sort numeric formats and add to reults
   var sortedKeys = Object.keys(resultsMap).sort()
   for (var i in sortedKeys) {
     var key = sortedKeys[i];
     results.push(resultsMap[key]);
   }
-
-  console.log(results);
 
 	return results;
 };
@@ -51,7 +47,7 @@ function convertToNumeric(title) {
   var titleParts = title.split(" ");
   var day = titleParts[0].padStart(2, "0");
   var month = months[titleParts[1]];
-  var year = titleParts[2];
+  var year = (titleParts.length > 2) ? titleParts[2] : "0000";
   return parseInt(year + month + day);
 };
 
