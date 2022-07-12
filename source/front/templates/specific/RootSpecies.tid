@@ -4,7 +4,7 @@ title: $:/plugins/neuroforest/front/templates/RootSpecies
   <div class="nc-enhance">
     Number of [[species|.bt Species]]: ''<$count tag filter=<<filter>> />''
   </div>
-  <$scrollable class="nc-scrollable" style="width:100%">
+  <$scrollable class="nc-scrollable">
     <table class="nc-table">
     <$list filter=<<filter>>>
 		  <$macrocall $name="get-name" title={{!!title}} />
