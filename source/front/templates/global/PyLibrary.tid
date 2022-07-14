@@ -1,0 +1,54 @@
+title: $:/plugins/neuroforest/front/templates/PyLibrary
+tags: $:/tags/ViewTemplate
+
+<$list filter="[all[current]prefix[.cp-py-li ]removeprefix[.cp-py-li ]]" variable="library">
+  <$set name="level" value={{{ [<library>split[.]count[]] }}}>
+    <hr>
+    <table class="nc-table-prog">
+      <tr>
+        <td>
+
+          !!!''Functions''
+          <$set name="function" value={{{[<library>addprefix[.cp-py-fn ]addsuffix[.]] }}}>
+            <$list filter="[prefix<function>]" variable="candidate">
+              <$set name="candidate-level" value={{{ [<candidate>removeprefix[.cp-py-fn ]split[.]count[]] }}}>
+                <$list filter="[<level>add[1]compare:number:eq<candidate-level>]">
+                  <$macrocall $name="get-name" title=<<candidate>> />
+                  <$link to=<<candidate>>><code><$transclude tiddler=<<candidate>> field="name" /></code></$link><br>
+                </$list>
+              </$set>
+            </$list>
+          </$set>
+        </td>
+        <td>
+
+          !!!''Objects''
+          <$set name="function" value={{{[<library>addprefix[.cp-py-ob ]addsuffix[.]] }}}>
+            <$list filter="[prefix<function>]" variable="candidate">
+              <$set name="candidate-level" value={{{ [<candidate>removeprefix[.cp-py-ob ]split[.]count[]] }}}>
+                <$list filter="[<level>add[1]compare:number:eq<candidate-level>]">
+                  <$macrocall $name="get-name" title=<<candidate>> />
+                  <$link to=<<candidate>>><code><$transclude tiddler=<<candidate>> field="name" /></code></$link><br>
+                </$list>
+              </$set>
+            </$list>
+          </$set>
+        </td>
+        <td>
+
+          !!!''Packages''
+            <$set name="function" value={{{[<library>addprefix[.cp-py-li ]addsuffix[.]] }}}>
+            <$list filter="[prefix<function>]" variable="candidate">
+              <$set name="candidate-level" value={{{ [<candidate>removeprefix[.cp-py-li ]split[.]count[]] }}}>
+                <$list filter="[<level>add[1]compare:number:eq<candidate-level>]">
+                  <$macrocall $name="get-name" title=<<candidate>> />
+                  <$link to=<<candidate>>><code><$transclude tiddler=<<candidate>> field="name" /></code></$link><br>
+                </$list>
+              </$set>
+            </$list>
+          </$set>
+        </td>
+      </tr>
+    </table>
+  </$set>
+</$list>
