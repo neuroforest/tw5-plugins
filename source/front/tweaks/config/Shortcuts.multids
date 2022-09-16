@@ -2,4 +2,5 @@ title: $:/config/shortcuts
 
 /cancel-edit-tiddler: escape
 /linkify: ctrl-alt-L
-/stamp: alt-S
+/sidebar-search: alt-S
+/stamp: ctrl-S
