@@ -4,6 +4,9 @@ title: $:/plugins/neuroforest/front/templates/Index
 
 <$list filter="[all[current]field:neuro.role[tree]]" variable="current">
 
+!!!''TREE''
+<$scrollable class="nc-scrollable">
 {{||$:/plugins/neuroforest/front/templates/Tree}}
+</$scrollable>
 
 </$list>

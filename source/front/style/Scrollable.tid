@@ -18,3 +18,7 @@ type: text/css
   margin: 0;
   width: 100%;
 }
+
+.nc-scrollable .tc-toc {
+  margin: 0;
+}
