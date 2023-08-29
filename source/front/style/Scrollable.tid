@@ -19,6 +19,12 @@ type: text/css
   width: 100%;
 }
 
-.nc-scrollable .tc-toc {
-  margin: 0;
+.nc-scrollable-index {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.nc-scrollable-index .tc-table-of-contents {
+  margin-bottom: 17px;
+  margin-top: 0px;
 }
