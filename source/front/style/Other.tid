@@ -15,6 +15,10 @@ blockquote cite {
   font-style: normal;
 }
 
+code {
+	padding: 0px;
+}
+
 div.nc-border {
 	align:center;
 	border: 1px solid <<color muted-foreground>>;

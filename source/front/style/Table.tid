@@ -18,6 +18,10 @@ type: text/vnd.tiddlywiki
   vertical-align: middle;
 }
 
+.nc-table-dark {
+  background-color: <<color page-background>>;
+}
+
 .nc-table-raw {
   border: none;
   width: 100%;

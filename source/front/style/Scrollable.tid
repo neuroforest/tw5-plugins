@@ -19,6 +19,10 @@ type: text/vnd.tiddlywiki
   width: 100%;
 }
 
+.nc-scrollable th {
+	background-color: <<color background>>;
+}
+
 .nc-scrollable-index {
   padding-bottom: 0;
   padding-top: 0;
