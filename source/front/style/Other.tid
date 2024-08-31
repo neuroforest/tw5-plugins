@@ -2,13 +2,12 @@ tags: $:/tags/Stylesheet
 title: $:/plugins/neuroforest/front/style/Other
 type: text/vnd.tiddlywiki
 
-.tc-drop-down {
-  border: 2px solid <<color muted-foreground>>;
-  margin: 4px;
+.tc-menu-list-item {
+  background-color: <<color page-background>>;
 }
 
-.tc-drop-down a {
-  color: <<color primary>>;
+.tc-tagged-draggable-list .tc-menu-list-item {
+  background-color: <<color background>>;
 }
 
 blockquote cite {
@@ -47,7 +46,7 @@ img.nc-image {
 }
 
 strong {
-  color: <<color strong-foreground>>
+  color: <<color strong-foreground>>;
 }
 
 textarea {

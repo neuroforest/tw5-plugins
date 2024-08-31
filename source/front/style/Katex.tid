@@ -12,3 +12,11 @@ type: text/vnd.tiddlywiki
   overflow: hidden;
   padding: 0.5em;
 }
+
+button .katex {
+  color: <<color foreground>>;
+}
+
+button:hover .katex {
+  color: <<color background>>;
+}
