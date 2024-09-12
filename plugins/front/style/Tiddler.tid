@@ -10,14 +10,6 @@ type: text/vnd.tiddlywiki
   overflow: hidden;
 }
 
-.tc-tiddler-info {
-  border: solid <<color muted-foreground>> 1px;
-  border-radius: 8px;
-  margin: 5px 0px 10px 0px;
-  padding: 8px 16px 8px 16px;
-  width: 100%;
-}
-
 .tc-view-field-table {
   width: 100%;
 }
@@ -34,22 +26,34 @@ div.nc-page-controls path {
   fill: red;
 }
 
+div.tc-tags-wrapper {
+  margin-bottom: 0px;
+}
+
 div.tc-tiddler-frame {
   border: 2px solid <<color muted-foreground>>;
   border-radius: 10px;
   padding: 1.5em 1.5em 0.5em 1.5em;
 }
 
-div.tc-tags-wrapper {
-  margin-bottom: 0px;
+div.tc-tiddler-info {
+  border: solid <<color muted-foreground>> 1px;
+  border-radius: 8px;
+  margin: 5px 0px 10px 0px;
+  padding: 8px 16px 8px 16px;
+  width: 100%;
 }
 
 h3 {
   text-decoration: underline;
 }
 
+pre {
+  padding: 0.5em;
+}
+
 pre.bash {
-  border: 2px solid <<color muted-foreground>>;
+  border: 1px solid <<color muted-foreground>>;
 }
 
 span.nc-tiddler-title-icon {

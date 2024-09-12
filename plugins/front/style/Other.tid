@@ -26,6 +26,15 @@ div.nc-border {
 	padding: 0px 25px 0px 25px;
 }
 
+div.nc-list-header {
+	display: flex;
+}
+
+div.nc-list-header a {
+	margin: 0em 0.5em 0em 0.5em;
+}
+
+
 div.tc-search svg {
   fill: <<color foreground>>;
 }

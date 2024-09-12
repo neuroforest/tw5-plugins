@@ -2,7 +2,7 @@ tags: $:/tags/Stylesheet
 title: $:/plugins/neuroforest/front/style/DropDown
 type: text/vnd.tiddlywiki
 
-div.tc-drop-down {
+div.tc-drop-down, span.tc-drop-down {
   border: 2px solid <<color muted-foreground>>;
   margin: 4px;
 	border-radius: 4px;
