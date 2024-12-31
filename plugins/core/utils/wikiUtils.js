@@ -265,9 +265,21 @@ exports.nfMerge = function(tiddlerTitles) {
 }
 
 exports.nfSearch = function(query) {
-  $tw.wiki.addTiddler({title: "$:/temp/search", text: query});
+  var altSEvent = new KeyboardEvent("keydown", {
+    key: "s",
+    code: "KeyS",          
+    keyCode: 83,
+    altKey: true,
+    bubbles: true,
+    cancelable: true
+  });
+  document.dispatchEvent(altSEvent);
+
+  var input = document.getElementsByClassName("tc-sidebar-search")[0].getElementsByTagName("input")[0];
+  input.value = query;
+
   $tw.wiki.addTiddler({title: "$:/temp/search/input", text: query});
-  $tw.wiki.addTiddler({title: "$:/state/popup/search-dropdown--874113614", text: "(42,254,99,21)"})
+
   return {"code": 204};
 }
 
