@@ -7,6 +7,19 @@ type: application/javascript
 
 "use strict";
 
+exports.nfCloseAll = function(title) {
+  var altCEvent = new KeyboardEvent("keydown", {
+    key: "c",
+    code: "KeyC",
+    keyCode: 67,
+    altKey: true,
+    bubbles: true,
+    cancelable: true
+  });
+  document.dispatchEvent(altCEvent);
+  return {"code": 204};
+};
+
 exports.nfOpen = function(title) {
   var tiddler = $tw.wiki.getTiddler(title);
   if (! tiddler) {
