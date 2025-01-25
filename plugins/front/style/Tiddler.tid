@@ -61,5 +61,5 @@ span.nc-tiddler-title-icon {
 }
 
 span.tc-tag-label {
-	border-radius: 0.4em !important;
+  border-radius: 0.4em !important;
 }

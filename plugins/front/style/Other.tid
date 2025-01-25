@@ -15,23 +15,23 @@ blockquote cite {
 }
 
 code {
-	padding: 0px;
+  padding: 0px;
 }
 
 div.nc-border {
-	align:center;
-	border: 1px solid <<color muted-foreground>>;
-	border-radius: 5px;
-	margin-bottom: 10px;
-	padding: 0px 25px 0px 25px;
+  align:center;
+  border: 1px solid <<color muted-foreground>>;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 0px 25px 0px 25px;
 }
 
 div.nc-list-header {
-	display: flex;
+  display: flex;
 }
 
 div.nc-list-header a {
-	margin: 0em 0.5em 0em 0.5em;
+  margin: 0em 0.5em 0em 0.5em;
 }
 
 
@@ -40,13 +40,13 @@ div.tc-search svg {
 }
 
 h1 strong, h2 strong, h3 strong, h4 strong {
-	color: <<colour foreground>>;
+  color: <<colour foreground>>;
 }
 
 input {
-	border: solid <<color foreground>> 1px ;
-	padding-left: 4px;
-	padding-right: 4px;
+  border: solid <<color foreground>> 1px ;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 img.nc-image {
@@ -59,5 +59,5 @@ strong {
 }
 
 textarea {
-	font-size: 20px;
+  font-size: 20px;
 }
