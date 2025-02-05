@@ -10,6 +10,22 @@ type: text/vnd.tiddlywiki
   background-color: <<color background>>;
 }
 
+a.tc-plugin-info div {
+  color: <<color foreground>>;
+}
+
+a.tc-plugin-info strong {
+  color: <<color primary>>;
+}
+
+a.tc-plugin-info-disabled div {
+  color: <<color background>>;
+}
+
+a.tc-plugin-info-disabled strong {
+  color: <<color background>>;
+}
+
 blockquote cite {
   font-style: normal;
 }
@@ -44,7 +60,8 @@ h1 strong, h2 strong, h3 strong, h4 strong {
 }
 
 input {
-  border: solid <<color foreground>> 1px ;
+  background: <<color background>>;
+  border: solid <<color foreground>> 1px;
   padding-left: 4px;
   padding-right: 4px;
 }
