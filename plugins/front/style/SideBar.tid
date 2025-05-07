@@ -9,7 +9,7 @@ div.tc-sidebar-search input {
   margin-bottom: 9px;
   margin-right: 8px;
   padding-left: 4px;
-  width: 264px;
+  width: 240px;
 }
 
 .tc-sidebar-tabs-main p button {
