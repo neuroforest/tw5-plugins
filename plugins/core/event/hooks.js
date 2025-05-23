@@ -38,7 +38,7 @@ function genUUID() {
 /*
 Log message to local file system
 */
-function logLocal(messageElements) {
+function logLocal(messageElements, suffix) {
   if (messageElements[0].startsWith("Draft of ")) {
     return;
   }
@@ -63,7 +63,7 @@ function logLocal(messageElements) {
     });
   }
 
-  var logFile = `${logDir}/${yearMonthDay}.txt`;
+  var logFile = `${logDir}/${yearMonthDay}-${suffix}.txt`;
   var log = messageElements.join("|") + "\n";
   fs.appendFile(logFile, log, function(err) {
     if (err) {
@@ -81,7 +81,7 @@ $tw.hooks.addHook("th-saving-tiddler", function(tiddler) {
   } else {
     var newTiddler = tiddler;
   }
-  logLocal([tiddler.fields["title"], tiddler.fields["neuro.id"], "", ""]);
+  logLocal([tiddler.fields["title"], newTiddler.fields["neuro.id"]], "save");
   return newTiddler;
 });
 
@@ -91,9 +91,9 @@ $tw.hooks.addHook("th-navigating", function(tiddler) {
   if (tiddler.navigateFromTitle) {
     var source = tiddler.navigateFromTitle;
     var sourceUuid = $tw.wiki.getTiddler(source).fields["neuro.id"];
-    logLocal([target, targetUuid, source, sourceUuid])
+    logLocal([target, targetUuid, source, sourceUuid], "navigate")
   } else {
-    logLocal([target, targetUuid, "", ""])
+    logLocal([target, targetUuid, "", ""], "navigate")
   }
   return tiddler;
 });

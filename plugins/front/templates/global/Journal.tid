@@ -25,7 +25,7 @@ title: $:/plugins/neuroforest/front/templates/global/Journal
             </$button>
             <$reveal type="nomatch" state=<<qualify "$:/temp/popup">> text="">
 
-              <$list filter="[search:created<date>]" />
+              <$list filter="[search:created<date>!is[system]]" />
 
             </$reveal>
           </td>
@@ -35,7 +35,7 @@ title: $:/plugins/neuroforest/front/templates/global/Journal
             </$button>
             <$reveal type="nomatch" state=<<qualify "$:/temp/popup">> text="">
 
-              <$list filter="[search:modified<date>]" />
+              <$list filter="[search:modified<date>!is[system]]" />
 
             </$reveal>
           </td>
