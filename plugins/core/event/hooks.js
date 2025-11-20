@@ -13,7 +13,7 @@ function logLocal(messageElements, suffix) {
   if (messageElements[0].startsWith("Draft of ")) {
     return;
   }
-  var storageTiddler = $tw.wiki.getTiddler("$:/plugins/neuroforest/front/settings/storage");
+  var storageTiddler = $tw.wiki.getTiddler("$:/config/neuroforest/storage");
   if (storageTiddler) {
     var storagePath = storageTiddler.fields.text;
   } else {
@@ -58,13 +58,18 @@ $tw.hooks.addHook("th-saving-tiddler", function(tiddler) {
 
 $tw.hooks.addHook("th-navigating", function(tiddler) {
   var target = tiddler.navigateTo;
-  var targetUuid = $tw.wiki.getTiddler(target).fields["neuro.id"];
-  if (tiddler.navigateFromTitle) {
-    var source = tiddler.navigateFromTitle;
-    var sourceUuid = $tw.wiki.getTiddler(source).fields["neuro.id"];
-    logLocal([target, targetUuid, source, sourceUuid], "navigate")
+  var targetTiddler = $tw.wiki.getTiddler(target);
+  if (!targetTiddler) {
+    return tiddler;
   } else {
-    logLocal([target, targetUuid, "", ""], "navigate")
+    var targetUuid = $tw.wiki.getTiddler(target).fields["neuro.id"];
+    if (tiddler.navigateFromTitle) {
+      var source = tiddler.navigateFromTitle;
+      var sourceUuid = $tw.wiki.getTiddler(source).fields["neuro.id"];
+      logLocal([target, targetUuid, source, sourceUuid], "navigate")
+    } else {
+      logLocal([target, targetUuid, "", ""], "navigate")
+    }
+    return tiddler;
   }
-  return tiddler;
 });
