@@ -2,6 +2,10 @@ tags: $:/tags/Stylesheet
 title: $:/plugins/neuroforest/front/style/Other
 type: text/vnd.tiddlywiki
 
+.appear {
+  border: 1px solid <<color foreground>>;
+}
+
 .tc-menu-list-item {
   background-color: <<color page-background>>;
 }
@@ -27,11 +31,20 @@ a.tc-plugin-info-disabled strong {
 }
 
 blockquote cite {
+  font-size: 80%;
   font-style: normal;
+}
+
+button {
+  border-radius: 4px;
 }
 
 code {
   padding: 0px;
+}
+
+pre.hljs, pre:has(code) {
+  overflow-x: hidden;
 }
 
 div.nc-border {
@@ -77,4 +90,8 @@ strong {
 
 textarea {
   font-size: 20px;
+}
+
+a.tc-plugin-info:hover div, a.tc-plugin-info:hover strong {
+  color: <<color background>>;
 }
