@@ -90,8 +90,10 @@ getTiddlerInfo returns the adaptor-specific metadata stored with the tiddler.
 This is used by the syncer to track external revisions.
 */
 Neo4jAdaptor.prototype.getTiddlerInfo = function(tiddler) {
-	return tiddler.adaptorInfo;
-};
+	return {
+		bag: tiddler.fields.bag
+		}
+  };
 
 // -- Neo4j Database Operations --
 
@@ -116,10 +118,11 @@ Neo4jAdaptor.prototype.saveTiddler = function(tiddler, callback, options) {
   const cypherQuery = `
     MERGE (o:Object {title: $title})
     ON CREATE SET
-      o += $fields,
+      o = $fields,
       o.created = $now,
       o.modified = $now
     ON MATCH SET
+      o = {},
       o += $fields,
       o.modified = $now
     RETURN o.modified AS modified, elementId(o) AS neo4jId;
