@@ -42,6 +42,18 @@ table.tc-edit-fields tr td {
   padding: 2px;
 }
 
+span.tc-edit-field-add-button {
+  width: auto;
+}
+
+div.tc-edit-field-add-name-wrapper input.tc-edit-texteditor {
+  width: 150px;
+}
+
+span.tc-edit-field-add-value {
+  width: 50%;
+}
+
 .tc-edit-type-selector-wrapper {
   display: flex;
   align-items: center;

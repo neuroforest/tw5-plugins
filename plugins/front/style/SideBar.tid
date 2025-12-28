@@ -48,3 +48,7 @@ div.tc-sidebar-tab-open button {
 .tc-create-wikitext-link input {
    padding: 0.32em;
 }
+
+button.tc-tab-selected {
+  font-weight: bold;
+}

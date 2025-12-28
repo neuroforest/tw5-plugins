@@ -6,6 +6,11 @@ type: text/vnd.tiddlywiki
   border: 1px solid <<color foreground>>;
 }
 
+.nc-expandable {
+  padding-left: 1em;
+  font-size: 90%;
+}
+
 .tc-menu-list-item {
   background-color: <<color page-background>>;
 }
@@ -20,6 +25,10 @@ a.tc-plugin-info div {
 
 a.tc-plugin-info strong {
   color: <<color primary>>;
+}
+
+a.tc-plugin-info:hover div, a.tc-plugin-info:hover strong {
+  color: <<color background>>;
 }
 
 a.tc-plugin-info-disabled div {
@@ -43,8 +52,16 @@ code {
   padding: 0px;
 }
 
+code.hljs {
+  border: solid 1px <<color muted-foreground>>;
+}
+
 pre.hljs, pre:has(code) {
   overflow-x: hidden;
+}
+
+pre:has(code) {
+  padding: 0.4em;
 }
 
 div.nc-border {
@@ -90,8 +107,4 @@ strong {
 
 textarea {
   font-size: 20px;
-}
-
-a.tc-plugin-info:hover div, a.tc-plugin-info:hover strong {
-  color: <<color background>>;
 }
