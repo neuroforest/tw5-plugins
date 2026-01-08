@@ -116,16 +116,16 @@ Neo4jAdaptor.prototype.saveTiddler = function(tiddler, callback, options) {
   // Cypher: MERGE on title, update all properties, and set a new 'modified' timestamp
   var now = new Date().toISOString();
   const cypherQuery = `
-    MERGE (o:Object {title: $title})
+    MERGE (t:Tiddler {title: $title})
     ON CREATE SET
-      o = $fields,
-      o.created = $now,
-      o.modified = $now
+      t = $fields,
+      t.created = $now,
+      t.modified = $now
     ON MATCH SET
-      o = {},
-      o += $fields,
-      o.modified = $now
-    RETURN o.modified AS modified, elementId(o) AS neo4jId;
+      t = {},
+      t += $fields,
+      t.modified = $now
+    RETURN t.modified AS modified, elementId(t) AS neo4jId;
   `;
 
   function buildQueryString(query, params) {
@@ -179,9 +179,9 @@ Neo4jAdaptor.prototype.deleteTiddler = function(title, callback, options) {
 
   // Delete the Tiddler node and all its relationships
   const cypherQuery = `
-    MATCH (o:Object {title: $title})
-    DETACH DELETE o
-    RETURN count(o) AS deletedCount;
+    MATCH (t:Tiddler {title: $title})
+    DETACH DELETE t
+    RETURN count(t) AS deletedCount;
   `;
 
   const runTransaction = session.run(cypherQuery, { title: title });
