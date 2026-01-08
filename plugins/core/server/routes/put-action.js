@@ -38,6 +38,9 @@ exports.handler = function(request,response,state) {
   } else if (action === "load") {
     var title = state.queryParameters["title"];
     var status = state.wiki.nfLoad(title);
+  } else if (action === "render") {
+    var tiddler = state.queryParameters;
+    var status = state.wiki.nfRender(tiddler);
   } else {
     var message = `Action is not supported ${action}`
     console.error(message);

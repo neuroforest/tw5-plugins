@@ -313,4 +313,14 @@ exports.nfLoad = function(title) {
   return {"code": 204};
 }
 
+exports.nfRender= function(tiddler) {
+  console.log("Rendering tiddler:", tiddler);
+  $tw.wiki.addTiddler(new $tw.Tiddler(
+    $tw.wiki.getCreationFields(),
+    tiddler,
+    {"temp": "1"},
+    $tw.wiki.getModificationFields()));
+  return {"code": 204};
+}
+
 })();
