@@ -95,7 +95,6 @@ exports.nfRecode = function (from, to) {
     $tw.wiki.nfRename(title, newTitle);
     // TODO: handle encoding
   })
-  
 };
 
 exports.nfAddFields = function(filter, newFields) {
@@ -298,6 +297,19 @@ exports.nfSearch = function(query) {
 
   $tw.wiki.addTiddler({title: "$:/temp/search/input", text: query});
 
+  return {"code": 204};
+}
+
+exports.nfLoad = function(title) {
+  console.log("Loading tiddler:", title);
+  $tw.syncer.syncadaptor.loadTiddler(title, function(err, fields) {
+    if (fields) {
+      $tw.wiki.addTiddler(new $tw.Tiddler(
+      $tw.wiki.getCreationFields(),
+      fields,
+      $tw.wiki.getModificationFields()));
+    }
+  });
   return {"code": 204};
 }
 

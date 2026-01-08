@@ -204,6 +204,40 @@ Neo4jAdaptor.prototype.deleteTiddler = function(title, callback, options) {
   );
 };
 
+/*
+Load a tiddler from Neo4j and invoke the callback with (err, tiddlerFields)
+*/
+Neo4jAdaptor.prototype.loadTiddler = function(title, callback) {
+  var self = this;
+  var session = this.getSession();
+
+  const cypherQuery = `
+    MATCH (t:Tiddler {title: $title})
+    RETURN properties(t) AS fields;
+   `;
+
+  const runTransaction = session.run(cypherQuery, { title: title });
+
+  promiseToCallback(
+    runTransaction.then(result => {
+      session.close();
+      if (result.records.length > 0) {
+        var tiddlerFields = result.records[0].get("fields");
+        callback(null, tiddlerFields);
+      } else {
+        self.logger.log(`Tiddler "${title}" not found in Neo4j.`);
+        callback(null, null);
+      }
+    })
+    .catch(function(err) {
+      session.close();
+      self.logger.log("Error loading tiddler: " + title, err);
+      callback(err);
+    }),
+    callback
+  );
+};
+
 // --- TiddlyWiki required export ---
 if(neo4jDriver) {
 	exports.adaptorClass = Neo4jAdaptor;

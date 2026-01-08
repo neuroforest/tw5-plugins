@@ -35,6 +35,9 @@ exports.handler = function(request,response,state) {
   } else if (action === "search") {
     var query = state.queryParameters["query"];
     var status = state.wiki.nfSearch(query);
+  } else if (action === "load") {
+    var title = state.queryParameters["title"];
+    var status = state.wiki.nfLoad(title);
   } else {
     var message = `Action is not supported ${action}`
     console.error(message);
