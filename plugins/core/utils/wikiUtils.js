@@ -306,8 +306,7 @@ exports.nfLoad = function(title) {
     if (fields) {
       $tw.wiki.addTiddler(new $tw.Tiddler(
       $tw.wiki.getCreationFields(),
-      fields,
-      $tw.wiki.getModificationFields()));
+      fields));
     }
   });
   return {"code": 204};

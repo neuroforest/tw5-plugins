@@ -222,8 +222,10 @@ Neo4jAdaptor.prototype.loadTiddler = function(title, callback) {
     runTransaction.then(result => {
       session.close();
       if (result.records.length > 0) {
-        var tiddlerFields = result.records[0].get("fields");
-        callback(null, tiddlerFields);
+        var fields = result.records[0].get("fields");
+        fields.created = new Date(fields.created);
+        fields.modified = new Date(fields.modified);
+        callback(null, fields);
       } else {
         self.logger.log(`Tiddler "${title}" not found in Neo4j.`);
         callback(null, null);
