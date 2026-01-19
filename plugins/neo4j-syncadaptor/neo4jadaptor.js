@@ -119,12 +119,13 @@ Neo4jAdaptor.prototype.saveTiddler = function(tiddler, callback, options) {
     MERGE (t:Tiddler {title: $title})
     ON CREATE SET
       t = $fields,
-      t.created = $now,
-      t.modified = $now
+      t.created = datetime($created),
+      t.modified = datetime($modified)
     ON MATCH SET
       t = {},
       t += $fields,
-      t.modified = $now
+      t.created = datetime($created),
+      t.modified = datetime($modified)
     RETURN t.modified AS modified, elementId(t) AS neo4jId;
   `;
 
@@ -138,7 +139,8 @@ Neo4jAdaptor.prototype.saveTiddler = function(tiddler, callback, options) {
   }
 
   const runTransaction = session.run(cypherQuery, {
-    now: now,
+    created: tiddlerFields.created ?? now,
+    modified: tiddlerFields.modified ?? now,
     title: title,
     fields: tiddlerFields
   });
