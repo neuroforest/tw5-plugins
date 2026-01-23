@@ -33,13 +33,13 @@ exports.nfOpen = function(title) {
   }
 };
   
-exports.nfRename = function(from, to) {
+exports.nfRename = function(from, to, force=false) {
   var tiddler = $tw.wiki.getTiddler(from);
   if (! tiddler) {
     var message = `Tiddler '${from}' does not exist.`;
     console.log(message);
     return {"code": 500, "message": message};
-  } else if ($tw.wiki.getTiddler(to)) {
+  } else if (($tw.wiki.getTiddler(to)) && !force) {
     var message = `Target tiddler '${to}' already exists.`;
     console.log(message);
     return {"code": 500, "message": message};
@@ -273,8 +273,7 @@ exports.nfMerge = function(tiddlerTitles) {
 
   var targetTitle = tiddlerFields.title;
   tiddlers.forEach(function(tiddlerNew) {
-    $tw.wiki.relinkTiddler(tiddlerNew.fields.title, targetTitle);
-    $tw.wiki.deleteTiddler(tiddlerNew.fields.title);
+    $tw.wiki.nfRename(tiddlerNew.fields.title, targetTitle, true);
   })
 
   $tw.wiki.addTiddler(new $tw.Tiddler(tiddlerFields));
