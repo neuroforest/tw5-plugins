@@ -183,7 +183,6 @@ exports.nfReplace = function(oldText, newText, filter) {
       } else if (typeof tiddler.fields[field] === "string") {
         var newValue = tiddler.fields[field].split(oldText).join(newText);
       } else {
-        console.log(tiddler.fields[field]);
         continue;
       }
       if (newValue !== tiddler.fields[field]) {
