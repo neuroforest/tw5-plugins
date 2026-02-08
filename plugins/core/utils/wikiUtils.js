@@ -226,7 +226,6 @@ exports.nfMerge = function(tiddlerTitles) {
     return {"code": 500, "message": message};
   }
 
-  var tiddlers = new Array();
   var tiddlers = tiddlerTitles.map(function(tiddlerTitle) {
     var tiddler = $tw.wiki.getTiddler(tiddlerTitle);
     return tiddler;
@@ -243,23 +242,35 @@ exports.nfMerge = function(tiddlerTitles) {
   }
   if (invalidTiddlers.length) {
     var message = `Invalid tiddlers: ${invalidTiddlers.join(", ")}`;
-    return {"code": 500, "message": message}
+    return {"code": 500, "message": message};
   }
 
   var tiddlerFields = new Object();
   var oldestCreated = new Date();
+  var text = new String();
+  var neuroId = new String();
   tiddlers.forEach(function(tiddlerNew) {
     const newCreated = tiddlerNew.fields.created;
+    // Handle the 'created' field
     if (newCreated) {
       if (newCreated < oldestCreated) {
         oldestCreated = newCreated;
+        neuroId = tiddlerNew.fields["neuro.id"];
       }
     }
+
+    // Handle the 'text' field
+    if (tiddlerNew.fields.text) {
+      text = tiddlerNew.fields.text + "\n\n" + text;
+    }
+
+    // Handle other fields
     for (const fieldName in tiddlerNew.fields) {
       const fieldValue = tiddlerNew.fields[fieldName];
-      if (fieldName === "created") {
+      if (["created", "neuro.id", "text"].indexOf(fieldName) !== -1) {
         continue;
       }
+
       if (fieldValue === "") {
         continue;
       }
@@ -269,6 +280,8 @@ exports.nfMerge = function(tiddlerTitles) {
   })
 
   tiddlerFields.created = oldestCreated;
+  tiddlerFields.text = text;
+  tiddlerFields["neuro.id"] = neuroId;
 
   var targetTitle = tiddlerFields.title;
   tiddlers.forEach(function(tiddlerNew) {
